@@ -1,0 +1,18 @@
+// CORE
+@import "core/grid-settings";
+@import "core/mixins";
+@import "core/defaults";
+@import "core/animations";
+
+// MODULES
+@import "modules/sprite"; // SVG sprites
+@import "modules/template"; // Main template file
+
+  // Partials
+  @import "partials/header";
+
+  // Pages
+  @import "modules/home"; // Home layout
+  @import "modules/forms"; // Forms helper
+
+// PARTIALS

@@ -1,0 +1,138 @@
+// Alpha color
+@function alpha-color($color: $black, $opacity: 0.5) {
+  $alpha-color-value: rgba($color, $opacity);
+  @return $alpha-color-value;
+}
+
+// Align to center
+@mixin center($axis: "both"){
+  position:absolute;
+  @if $axis == "y"{
+    top:50%;
+    transform: translateY(-50%);
+  }
+  @if $axis == "x"{
+    left:50%;
+    transform: translateX(-50%);
+  }
+  @if $axis == "both"{
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Clearfix hack
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Text inputs
+$inputs-list: 'input[type="email"]',
+              'input[type="number"]',
+              'input[type="password"]',
+              'input[type="search"]',
+              'input[type="tel"]',
+              'input[type="text"]',
+              'input[type="url"]',
+
+              // Webkit & Gecko may change the display of these in the future
+              'input[type="color"]',
+              'input[type="date"]',
+              'input[type="datetime"]',
+              'input[type="datetime-local"]',
+              'input[type="month"]',
+              'input[type="time"]',
+              'input[type="week"]';
+
+$unquoted-inputs-list: ();
+
+@each $input-type in $inputs-list {
+  $unquoted-inputs-list: append($unquoted-inputs-list, unquote($input-type), comma);
+}
+
+$all-text-inputs: $unquoted-inputs-list;
+
+// Container
+@mixin outer-container {
+  margin: 0 auto;
+  max-width: $max-width; 
+}
+
+// Font face
+@mixin font-face($family, $src, $style: normal, $weight: normal) {
+	@font-face {
+		font-family: $family;
+		src: url('#{$src}.eot'); // IE9 compat
+		src: url('#{$src}.eot?#iefix') format('embedded-opentype'), // IE8 and below
+			url('#{$src}.woff') format('woff'), // standards
+			url('#{$src}.ttf') format('truetype'), // Safari, Android, iOS
+			url('#{$src}.svg##{$family}') format('svg'); // legacy iOS
+
+		font-style: $style;
+		font-weight: $weight;
+	}
+}
+
+// Media queries
+@mixin media($max-width: $mobile) {
+  @media only screen and (max-width: $max-width) { @content; }
+}
+
+// Target/context formula
+@function percent($target, $context: $max-width) {
+  $target-context-num: $target/$context * 100%;
+  @return $target-context-num;
+}
+
+// EM formula
+@function em($target, $context: $font-size) {
+  $target-context-num: $target/$context * 1em;
+  @return $target-context-num;
+}
+
+// Scollbars
+@mixin scrollbars($size: 8px, $foreground-color: darken($white, 20%), $background-color: darken($white, 10%)) {
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+    border-radius: 10px;
+  }
+}
+
+// Elements
+@mixin inlineNav($ul: true) {
+  @if $ul == true {
+    ul { margin: 0; padding: 0; }
+  }
+  li { display: inline-block; vertical-align: top; }
+}
+
+// More button
+  @mixin moreButton($fgcolor: $blue, $bgcolor: transparent, $fghover: $white) { color: $fgcolor; text-decoration: none; font-family: $metric-bold; padding: 10px 20px; border: 1px solid $fgcolor; border-radius: 30px; font-size: 18px; line-height: 20px; display: inline-block; transition: 100ms; background: $bgcolor; cursor: pointer;
+    &:hover { color: $fghover; background: $fgcolor; }
+  }
+
+// Overlay
+  @mixin overlay($opacity: 0.5, $color: $black, $front: false, $element: before) { position: relative; z-index: 1;
+    &:#{$element} { content: ""; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: alpha-color($color, $opacity); @if $front == true { z-index: 1; } @else { z-index: -1; } }
+  }
+
+// Loading spinner
+ @mixin loader($size: 30px, $color: $accent, $center: false, $duration: 1s) { font-size: 0; width: $size; height: $size; border: 3px solid $color; border-left: 3px solid transparent; border-radius: 50%; animation: rotate $duration linear infinite;
+
+    @if $center == true { position: absolute; top: 50%; left: 50%; margin-left: -$size/2; margin-top: -$size/2; }
+  }

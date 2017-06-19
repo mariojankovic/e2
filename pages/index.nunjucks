@@ -1,0 +1,10 @@
+<!-- index.nunjucks -->
+{% extends "layout.nunjucks" %}
+{% block content %}
+
+<div class="center">
+  <h1 class="title">This is E2!</h1>
+  <p>A bare-minimum static site generator with some nice features like Babel transpiling and uglification, Image minifaction, SVG sprites and more. More info to come!</p>
+</div>
+
+{% endblock %}

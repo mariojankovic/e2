@@ -1,0 +1,33 @@
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: 10100; }
+}
+
+$bubblesX: random(5) + px;
+@keyframes bubbles {
+  10% { transform: translate($bubblesX, -50px); opacity: 0; }
+  20% { transform: translate(-$bubblesX, -100px); opacity: 1; }
+  30% { transform: translate($bubblesX, -150px); }
+  40% { transform: translate(-$bubblesX, -200px); opacity: 1; }
+  50%, 100% { transform: translate(0px, -250px) scale(1.5); opacity: 0; }
+}
+
+@keyframes bubbles2 {
+  10% { transform: translate($bubblesX, -40px); opacity: 0; }
+  20% { transform: translate(-$bubblesX, -80px); opacity: 1; }
+  30% { transform: translate($bubblesX, -120px); }
+  40% { transform: translate(-$bubblesX, -160px); opacity: 1; }
+  50%, 100% { transform: translate(0px, -200px) scale(1.5); opacity: 0; }
+}
+
+@keyframes bubbles3 {
+  10% { transform: translate($bubblesX, -60px); opacity: 0; }
+  20% { transform: translate(-$bubblesX, -120px); opacity: 1; }
+  30% { transform: translate($bubblesX, -180px); }
+  40% { transform: translate(-$bubblesX, -240px); opacity: 1; }
+  50%, 100% { transform: translate($bubblesX, -300px) scale(1.5); opacity: 0; }
+}

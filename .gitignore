@@ -1,0 +1,12 @@
+node_modules
+.DS_Store
+.sass-cache
+.idea
+.ssh
+.jscsrc
+bower_components
+
+public/*
+*.html
+
+gulpfile.old.js

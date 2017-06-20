@@ -1,3 +1,6 @@
+![logo](https://github.com/mariojankovic/e2/blob/master/assets/images/e2.png?raw=true)
+
+
 # GULP Sass/Nunjacks setup
 Static site workflow using GULP 4 with Sass, Imagemin, SVG sprites and Nunjucks.
 
@@ -18,3 +21,4 @@ Static site workflow using GULP 4 with Sass, Imagemin, SVG sprites and Nunjucks.
 ##### TODO:
 - [] Add Yarn
 - [] Document all mixins
+- [] Handle GULP errors

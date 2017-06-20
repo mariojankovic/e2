@@ -6,18 +6,18 @@
 
 // Align to center
 @mixin center($axis: "both"){
-  position:absolute;
+  position: absolute;
   @if $axis == "y"{
-    top:50%;
+    top: 50%;
     transform: translateY(-50%);
   }
   @if $axis == "x"{
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
   }
   @if $axis == "both"{
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
   }
 }
@@ -95,6 +95,12 @@ $all-text-inputs: $unquoted-inputs-list;
   @return $target-context-num;
 }
 
+// REM formula
+@function rem($target, $context: $font-size) {
+  $target-context-num: $target/$context * 1rem;
+  @return $target-context-num;
+}
+
 // Scollbars
 @mixin scrollbars($size: 8px, $foreground-color: darken($white, 20%), $background-color: darken($white, 10%)) {
   &::-webkit-scrollbar {
@@ -120,11 +126,6 @@ $all-text-inputs: $unquoted-inputs-list;
   }
   li { display: inline-block; vertical-align: top; }
 }
-
-// More button
-  @mixin moreButton($fgcolor: $blue, $bgcolor: transparent, $fghover: $white) { color: $fgcolor; text-decoration: none; font-family: $metric-bold; padding: 10px 20px; border: 1px solid $fgcolor; border-radius: 30px; font-size: 18px; line-height: 20px; display: inline-block; transition: 100ms; background: $bgcolor; cursor: pointer;
-    &:hover { color: $fghover; background: $fgcolor; }
-  }
 
 // Overlay
   @mixin overlay($opacity: 0.5, $color: $black, $front: false, $element: before) { position: relative; z-index: 1;

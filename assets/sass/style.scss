@@ -1,18 +1,15 @@
-// CORE
-@import "core/grid-settings";
-@import "core/mixins";
-@import "core/defaults";
-@import "core/animations";
+@import 'base/mixins';
+@import 'base/variables';
 
-// MODULES
-@import "modules/sprite"; // SVG sprites
-@import "modules/template"; // Main template file
+@import 'base/normalize';
+@import 'base/global';
 
-  // Partials
-  @import "partials/header";
+// Import Components
+// @import 'components/header';
 
-  // Pages
-  @import "modules/home"; // Home layout
-  @import "modules/forms"; // Forms helper
 
-// PARTIALS
+// Import Layouts
+@import 'layouts/home';
+
+// Import Plugins
+// @import 'plugins/plugin';

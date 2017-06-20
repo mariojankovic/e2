@@ -54,7 +54,7 @@ export const icons = gulp.series(svgIcons)
 /**
  * Custom environments
  */
-const dev = gulp.series(clean, gulp.parallel(server, scripts, styles, views, watch))
+const dev = gulp.series(clean, gulp.parallel(server, icons, images, scripts, styles, views, watch))
 const prod = gulp.series(clean, gulp.series(clean, icons, images, scripts, styles, views))
 
 var build = production() ? prod : dev

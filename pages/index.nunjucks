@@ -2,9 +2,8 @@
 {% extends "layout.nunjucks" %}
 {% block content %}
 
-<div class="center">
+<div class="intro">
   <img src="public/images/e2.png" alt="">
-  <h1 class="title">This is E2!</h1>
   <p>A bare-minimum static site generator with some nice features like Babel transpiling and uglification, Image minifaction, SVG sprites and more.</p>
 </div>
 

@@ -14,10 +14,10 @@ Static site workflow using GULP 4 with Sass, Imagemin, SVG sprites and Nunjucks.
 4. PROFIT!
 
 ## Usage
-- Production ready files can be built using `gulp prod`
+- Production ready files can be built using `gulp --env production`
 - Building image files or SVG sprites can be done using either `gulp images` or `gulp icons`
 
 ## TODO:
 - ☑️ Add Yarn
 - ️️☑️ Document all mixins
-- ☑️ Handle GULP errors
+- ☑️ Set-up basic grid

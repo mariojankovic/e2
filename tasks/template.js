@@ -12,6 +12,7 @@ import nunjucks from 'gulp-nunjucks-render'
 import svgSprite from 'gulp-svg-sprite'
 import imagemin from 'gulp-imagemin'
 import environments from 'gulp-environments'
+import notify from 'gulp-notify'
 
 import { paths } from './config'
 
@@ -19,15 +20,27 @@ const development = environments.development;
 const production = environments.production;
 
 /**
+ * Log errors
+ */
+const onError = function(err) {
+  notify.onError({
+    message:  "Error: <%= error.message %>",
+  }) (err)
+
+  this.emit('end')
+}
+
+/**
  * SASS compiling with sourcemaps and autoprefixer
  */
 export const styles = () => {
   return gulp.src(paths.styles.src)
-    .pipe(sass())
     .pipe(sourcemaps.init())
+    .pipe(sass())
+    .on('error', onError)
     .pipe(autoprefixer())
-    .pipe(sourcemaps.write())
     .pipe(cleanCSS())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(browserSync.stream())
 }
@@ -46,11 +59,13 @@ export const scripts = () => {
 /**
  * Injects each page into main layout template. Use partials to specify global objects
  */
+
 export const views = () => {
   return gulp.src(paths.views.src)
     .pipe(nunjucks({
       path: ['templates/', 'public/'] // Public is required for SVG icons referrence
     }))
+    .on('error', onError)
     .pipe(gulp.dest('./'))
 }
 

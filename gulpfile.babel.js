@@ -41,7 +41,7 @@ const watch = () => {
 }
 
 /**
- * Wipe assets
+ * Wipe assets (sounds way too dirty)
  */
 const clean = () => del([ 'public' ])
 

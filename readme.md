@@ -9,8 +9,8 @@ Static site workflow using GULP 4 with Sass, Imagemin, SVG sprites and Nunjucks.
 
 ## Installation
 ```
-1. Run `npm install`
-2. Run `gulp`
+1. Run npm install
+2. Run gulp
 3. ???
 4. PROFIT!
 ```

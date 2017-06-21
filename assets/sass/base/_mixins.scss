@@ -1,9 +1,3 @@
-// Alpha color
-@function alpha-color($color: $black, $opacity: 0.5) {
-  $alpha-color-value: rgba($color, $opacity);
-  @return $alpha-color-value;
-}
-
 // Align to center
 @mixin center($axis: "both"){
   position: absolute;
@@ -39,8 +33,6 @@ $inputs-list: 'input[type="email"]',
               'input[type="tel"]',
               'input[type="text"]',
               'input[type="url"]',
-
-              // Webkit & Gecko may change the display of these in the future
               'input[type="color"]',
               'input[type="date"]',
               'input[type="datetime"]',
@@ -58,7 +50,7 @@ $unquoted-inputs-list: ();
 $all-text-inputs: $unquoted-inputs-list;
 
 // Container
-@mixin outer-container {
+@mixin container {
   margin: 0 auto;
   max-width: $max-width; 
 }
@@ -122,18 +114,53 @@ $all-text-inputs: $unquoted-inputs-list;
 // Elements
 @mixin inlineNav($ul: true) {
   @if $ul == true {
-    ul { margin: 0; padding: 0; }
+    ul { 
+      margin: 0; 
+      padding: 0; 
+    }
   }
-  li { display: inline-block; vertical-align: top; }
+
+  li { 
+    display: inline-block; 
+    vertical-align: top; 
+  }
 }
 
 // Overlay
   @mixin overlay($opacity: 0.5, $color: $black, $front: false, $element: before) { position: relative; z-index: 1;
-    &:#{$element} { content: ""; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: alpha-color($color, $opacity); @if $front == true { z-index: 1; } @else { z-index: -1; } }
+    &:#{$element} { 
+      content: ""; 
+      display: block; 
+      position: absolute; 
+      top: 0; 
+      right: 0; 
+      bottom: 0; 
+      left: 0; 
+      background: alpha-color($color, $opacity); 
+      
+      @if $front == true { 
+        z-index: 1; 
+      } @else { 
+        z-index: -1; 
+      } 
+    }
   }
 
 // Loading spinner
- @mixin loader($size: 30px, $color: $accent, $center: false, $duration: 1s) { font-size: 0; width: $size; height: $size; border: 3px solid $color; border-left: 3px solid transparent; border-radius: 50%; animation: rotate $duration linear infinite;
+ @mixin loader($size: 30px, $color: $accent, $center: false, $duration: 1s) { 
+   font-size: 0; 
+   width: $size; 
+   height: $size; 
+   border: 3px solid $color; 
+   border-left: 3px solid transparent; 
+   border-radius: 50%; 
+   animation: rotate $duration linear infinite;
 
-    @if $center == true { position: absolute; top: 50%; left: 50%; margin-left: -$size/2; margin-top: -$size/2; }
+  @if $center == true { 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    margin-left: -$size/2; 
+    margin-top: -$size/2; 
   }
+}

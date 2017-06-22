@@ -35,12 +35,12 @@ const onError = function(err) {
  */
 export const styles = () => {
   return gulp.src(paths.styles.src)
-    .pipe(sourcemaps.init())
+    .pipe(development(sourcemaps.init()))
     .pipe(sass())
     .on('error', onError)
     .pipe(autoprefixer())
     .pipe(cleanCSS())
-    .pipe(sourcemaps.write())
+    .pipe(development(sourcemaps.write()))
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(browserSync.stream())
 }
@@ -59,7 +59,6 @@ export const scripts = () => {
 /**
  * Injects each page into main layout template. Use partials to specify global objects
  */
-
 export const views = () => {
   return gulp.src(paths.views.src)
     .pipe(nunjucks({

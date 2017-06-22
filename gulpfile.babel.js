@@ -24,8 +24,7 @@ const server = () => {
   browserSync.init({
     server: {
       baseDir: "./"
-    },
-    browser: "google chrome"
+    }
   })
 }
 

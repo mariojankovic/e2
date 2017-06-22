@@ -36,7 +36,9 @@ const onError = function(err) {
 export const styles = () => {
   return gulp.src(paths.styles.src)
     .pipe(development(sourcemaps.init()))
-    .pipe(sass())
+    .pipe(sass({
+      includePaths: require('node-normalize-scss').includePaths
+    }))
     .on('error', onError)
     .pipe(autoprefixer())
     .pipe(cleanCSS())

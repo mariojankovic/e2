@@ -11,6 +11,7 @@ import cleanCSS from 'gulp-clean-css'
 import nunjucks from 'gulp-nunjucks-render'
 import svgSprite from 'gulp-svg-sprite'
 import imagemin from 'gulp-imagemin'
+import fontgen from 'gulp-fontgen'
 import environments from 'gulp-environments'
 import notify from 'gulp-notify'
 
@@ -37,7 +38,9 @@ export const styles = () => {
   return gulp.src(paths.styles.src)
     .pipe(development(sourcemaps.init()))
     .pipe(sass({
-      includePaths: require('node-normalize-scss').includePaths
+      includePaths: [
+        'node_modules/node-normalize-scss'
+      ]
     }))
     .on('error', onError)
     .pipe(autoprefixer())
@@ -71,6 +74,17 @@ export const views = () => {
 }
 
 /**
+ * Font generator
+ */
+export const fontGenerator = () => {
+  del([ paths.fonts.dest ])
+  return gulp.src(paths.fonts.src)
+    .pipe(fontgen({
+      dest: paths.fonts.dest
+    })) 
+}
+
+/**
  * SVG sprite minification and optimization
  */
 export const svgIcons = () => {
@@ -101,4 +115,13 @@ export const imageMinification = () => {
   return gulp.src(paths.images.src)
 		.pipe(imagemin())
 		.pipe(gulp.dest(paths.images.dest))
+}
+
+/**
+ * Dead simple task to copy raw, production ready files
+ */
+export const copy = () => {
+  // Copy WOFF/WOFF2 font files
+  return gulp.src(paths.raw.woff.src)
+    .pipe(gulp.dest(paths.raw.woff.dest))
 }

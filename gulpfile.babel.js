@@ -14,8 +14,10 @@ const production = environments.production;
 import { styles } from './tasks/template'
 import { scripts } from './tasks/template'
 import { views } from './tasks/template'
+import { fontGenerator } from './tasks/template'
 import { imageMinification } from './tasks/template'
 import { svgIcons } from './tasks/template'
+import { copy } from './tasks/template'
 
 /**
  *  Start the engine 🚙
@@ -43,18 +45,20 @@ const watch = () => {
  * Wipe assets (sounds way too dirty)
  */
 const clean = () => del([ 'public' ])
+const cleanFontStyles = () => del([  `${paths.fonts.dest}/*.css` ])
 
 /**
  * Build icons and images
  */
-export const images = gulp.series(imageMinification)
 export const icons = gulp.series(svgIcons)
+export const images = gulp.series(imageMinification)
+export const fonts = gulp.series(fontGenerator, cleanFontStyles)
 
 /**
  * Custom environments
  */
-const dev = gulp.series(clean, gulp.parallel(server, icons, images, scripts, styles, views, watch))
-const prod = gulp.series(clean, gulp.series(clean, icons, images, scripts, styles, views))
+const dev = gulp.series(clean, icons, gulp.parallel(server, images, scripts, styles, views, copy, watch))
+const prod = gulp.series(clean, gulp.series(clean, icons, images, scripts, styles, views, copy))
 
 let build = production() ? prod : dev
 

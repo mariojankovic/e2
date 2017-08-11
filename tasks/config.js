@@ -9,11 +9,11 @@ export const paths = {
   },
   views: {
     src: 'pages/**/*.nunjucks',
-    path: [
-      'pages/**/*.nunjucks',
-      'templates/**/*.nunjucks'
-    ],
     dest: '.'
+  },
+  fonts: {
+    src: 'assets/fonts/**/*.{ttf,otf}',
+    dest: 'public/fonts'
   },
   images: {
     src: 'assets/images/**/*',
@@ -22,5 +22,11 @@ export const paths = {
   icons: {
     src: 'assets/icons/**/*',
     dest: 'public/icons'
+  },
+  raw: {
+    woff: {
+      src: 'assets/fonts/**/*.{woff,woff2}',
+      dest: 'public/fonts'
+    }
   }
 }

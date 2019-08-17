@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="intro">
-  <img src="public/images/e2.png" alt="">
+  {% include "partials/logo.nunjucks" %}
   <p>A bare-minimum static site generator with some nice features like Babel transpiling and uglification, Image minifaction, SVG sprites and more.</p>
 </div>
 

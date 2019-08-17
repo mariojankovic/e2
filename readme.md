@@ -40,6 +40,4 @@ npm install --global gulp-cli
 - Building image files or SVG sprites can be done using either `gulp images` or `gulp icons`
 
 ## TODO:
-- ☑️ Add Yarn
 - ️️☑️ Document all mixins
-- ☑️ Set-up basic grid

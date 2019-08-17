@@ -5,6 +5,8 @@
 <div class="intro">
   {% include "partials/logo.nunjucks" %}
   <p>A bare-minimum static site generator with some nice features like Babel transpiling and uglification, Image minifaction, SVG sprites and more.</p>
+
+  <a href="https://github.com/mariojankovic/e2"><svg aria-hidden="true" class="icon-github"><use xlink:href="#github"></use></svg></a>
 </div>
 
 {% endblock %}

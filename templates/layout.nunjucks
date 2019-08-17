@@ -4,7 +4,7 @@
   <title>Elevensixty v2</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-  
+
   <link rel="stylesheet" href="public/css/style.css">
 </head>
 
@@ -15,8 +15,7 @@
     {% endblock %}
   </main>
 
-  {# include "icons/sprite.svg" #}
-
+  {% include "icons/sprite.svg" %}
   <script src="public/js/main.min.js"></script>
 
 </body>

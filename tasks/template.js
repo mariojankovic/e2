@@ -11,7 +11,7 @@ import cleanCSS from 'gulp-clean-css'
 import nunjucks from 'gulp-nunjucks-render'
 import svgSprite from 'gulp-svg-sprite'
 import imagemin from 'gulp-imagemin'
-import fontgen from 'gulp-fontgen'
+import ttf2woff from 'gulp-ttf2woff'
 import environments from 'gulp-environments'
 import notify from 'gulp-notify'
 
@@ -78,10 +78,9 @@ export const views = () => {
  */
 export const fontGenerator = () => {
   del([ paths.fonts.dest ])
-  return gulp.src(paths.fonts.src)
-    .pipe(fontgen({
-      dest: paths.fonts.dest
-    })) 
+  return gulp.src([paths.fonts.src])
+    .pipe(ttf2woff())
+    .pipe(gulp.dest(paths.fonts.dest))
 }
 
 /**
@@ -92,7 +91,7 @@ export const svgIcons = () => {
   return gulp.src(paths.icons.src)
     .pipe(svgSprite({
       mode: {
-        symbol: { 
+        symbol: {
           render: {
             css: false,
             scss: false

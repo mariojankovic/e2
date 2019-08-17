@@ -57,8 +57,8 @@ export const fonts = gulp.series(fontGenerator, cleanFontStyles)
 /**
  * Custom environments
  */
-const dev = gulp.series(clean, icons, gulp.parallel(server, images, scripts, styles, views, copy, watch))
-const prod = gulp.series(clean, gulp.series(clean, icons, images, scripts, styles, views, copy))
+const dev = gulp.series(clean, icons, gulp.parallel(server, images, fonts, scripts, styles, views, copy, watch))
+const prod = gulp.series(clean, gulp.series(clean, icons, images, fonts, scripts, styles, views, copy))
 
 let build = production() ? prod : dev
 

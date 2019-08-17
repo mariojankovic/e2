@@ -12,7 +12,7 @@ export const paths = {
     dest: '.'
   },
   fonts: {
-    src: 'assets/fonts/**/*.{ttf,otf}',
+    src: 'assets/fonts/**/*.ttf',
     dest: 'public/fonts'
   },
   images: {

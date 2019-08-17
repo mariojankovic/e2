@@ -5,24 +5,25 @@
   "description": "GULP task handler for a seamless Sass workflow.",
   "main": "gulpfile.js",
   "devDependencies": {
-    "babel-preset-es2015": "^6.24.1",
-    "babel-register": "^6.24.1",
-    "browser-sync": "^2.18.12",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-babel": "^6.1.2",
-    "gulp-clean-css": "^3.4.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-environments": "^0.1.2",
-    "gulp-fontgen": "^0.2.5",
-    "gulp-imagemin": "^3.3.0",
-    "gulp-notify": "^3.0.0",
-    "gulp-nunjucks-render": "^2.2.1",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp-svg-sprite": "^1.3.7",
-    "gulp-uglify": "^3.0.0",
-    "node-normalize-scss": "^3.0.0"
+    "gulp-imagemin": "^6.0.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-svg-sprite": "^1.5.0",
+    "gulp-ttf2woff": "^1.1.1",
+    "gulp-uglify": "^3.0.2",
+    "node-normalize-scss": "^8.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -30,6 +31,6 @@
   "author": "Mario Jankovic",
   "license": "ISC",
   "dependencies": {
-    "del": "^3.0.0"
+    "del": "^5.0.0"
   }
 }

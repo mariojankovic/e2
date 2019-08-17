@@ -32,11 +32,6 @@
     $mobile-narrow: 370px;
 
 // TYPE
-  $font-size: 16px;
-  $line-height: 1.5;
-  $body-font: 'Avenir', Arial, sans-serif;
-  $title-font: Georgia, serif;
-
   $thin: 100;
   $light: 300;
   $regular: 400;
@@ -44,3 +39,10 @@
   $semibold: 600;
   $bold: 700;
   $ultra: 900;
+
+  @include font-face('Roboto', '../fonts/roboto/roboto-regular', 'normal', $regular);
+
+  $font-size: 18px;
+  $line-height: 1.5;
+  $body-font: 'Roboto', Arial, sans-serif;
+  $title-font: Georgia, serif;
